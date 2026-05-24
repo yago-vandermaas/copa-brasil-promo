@@ -228,6 +228,64 @@ function CheckoutPage() {
               </div>
             </section>
 
+            {(needsSize || needsNome) && (
+              <section>
+                <h2 className="font-display text-lg font-extrabold mb-4">Personalização do produto</h2>
+                <div className="space-y-5">
+                  {needsSize && (
+                    <div>
+                      <label className="text-xs font-semibold text-muted-foreground">Tamanho da camisa</label>
+                      <div className="mt-2 grid grid-cols-4 gap-2">
+                        {(["P", "M", "G", "GG"] as const).map(t => {
+                          const active = form.tamanhoCamisa === t;
+                          return (
+                            <button
+                              key={t}
+                              type="button"
+                              onClick={() => set("tamanhoCamisa", t)}
+                              className={
+                                "rounded-xl border-2 py-3 font-display font-black text-base transition " +
+                                (active
+                                  ? "border-primary bg-primary text-primary-foreground shadow-glow"
+                                  : "border-border bg-background hover:border-primary/50")
+                              }
+                            >
+                              {t}
+                            </button>
+                          );
+                        })}
+                      </div>
+                      {fieldErr("tamanhoCamisa")}
+                    </div>
+                  )}
+
+                  {needsNome && (
+                    <div>
+                      <label className="text-xs font-semibold text-muted-foreground">
+                        Nome a gravar no copo <span className="text-primary">(personalização premium)</span>
+                      </label>
+                      <input
+                        className={inputBase + " uppercase tracking-wider"}
+                        value={form.nomeCopo}
+                        onChange={e => set("nomeCopo", e.target.value.slice(0, 15))}
+                        maxLength={15}
+                        placeholder="EX: BRASIL"
+                      />
+                      <div className="mt-1 flex justify-between text-xs">
+                        <span className="text-muted-foreground">Copo original Stanley — gravação premium</span>
+                        <span className={form.nomeCopo.length >= 15 ? "text-primary font-bold" : "text-muted-foreground"}>
+                          {form.nomeCopo.length}/15
+                        </span>
+                      </div>
+                      {fieldErr("nomeCopo")}
+                    </div>
+                  )}
+                </div>
+              </section>
+            )}
+
+
+
             <section>
               <h2 className="font-display text-lg font-extrabold mb-4">Endereço de entrega</h2>
               <div className="grid sm:grid-cols-6 gap-4">
