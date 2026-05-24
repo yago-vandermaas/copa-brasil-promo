@@ -171,8 +171,6 @@ function CheckoutPage() {
   const totalFormatado = totalSoma.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
   // --------------------------------
 
-  return (
-    <div className="min-h-screen bg-muted/40"></div>
 
   return (
     <div className="min-h-screen bg-muted/40">
