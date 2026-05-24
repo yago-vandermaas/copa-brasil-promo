@@ -4,6 +4,7 @@ import { z } from "zod";
 import { ChevronLeft, ChevronRight, Lock, ShieldCheck, Truck } from "lucide-react";
 import camisaImg from "@/assets/camisa-brasil.jpg";
 import copoImg from "@/assets/copo-termico.jpg";
+import heroImg from "@/assets/hero-kit.jpg";
 
 const CHECKOUT_LINKS = {
   camisa: "https://app.katorzepay.com/checkout/pay/camisa-brasil-2026-tailandesa",
