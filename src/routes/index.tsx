@@ -2,8 +2,45 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Check, Flame, ShieldCheck, Star, Truck, Lock, Clock, ChevronRight } from "lucide-react";
 import heroImg from "@/assets/hero-kit.jpg";
+import heroImg2 from "@/assets/hero-kit-2.jpg";
+import heroImg3 from "@/assets/hero-kit-3.jpg";
 import camisaImg from "@/assets/camisa-brasil.jpg";
+import camisaImg2 from "@/assets/camisa-brasil-2.jpg";
+import camisaImg3 from "@/assets/camisa-brasil-3.jpg";
 import copoImg from "@/assets/copo-termico.jpg";
+import copoImg2 from "@/assets/copo-termico-2.jpg";
+import copoImg3 from "@/assets/copo-termico-3.jpg";
+
+function ProductGallery({ images, alt, fit = "cover" }: { images: string[]; alt: string; fit?: "cover" | "contain" }) {
+  const [active, setActive] = useState(0);
+  return (
+    <div className="flex flex-col">
+      <div className={`relative aspect-square overflow-hidden ${fit === "contain" ? "p-6" : ""}`}>
+        <img
+          src={images[active]}
+          alt={alt}
+          loading="lazy"
+          className={`w-full h-full ${fit === "cover" ? "object-cover" : "object-contain"} transition duration-500`}
+        />
+      </div>
+      <div className="flex gap-2 px-4 pb-4 pt-3 bg-background/40">
+        {images.map((src, i) => (
+          <button
+            key={src}
+            type="button"
+            onClick={() => setActive(i)}
+            aria-label={`Ver foto ${i + 1}`}
+            className={`relative h-16 w-16 shrink-0 rounded-xl overflow-hidden border-2 transition ${
+              active === i ? "border-primary shadow-glow" : "border-border opacity-70 hover:opacity-100"
+            }`}
+          >
+            <img src={src} alt="" className="w-full h-full object-cover" />
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
