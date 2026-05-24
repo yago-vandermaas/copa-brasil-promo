@@ -8,6 +8,8 @@ import copoImg from "@/assets/copo-termico.jpg";
 const CHECKOUT_LINKS = {
   camisa: "https://app.katorzepay.com/checkout/pay/camisa-brasil-2026-tailandesa",
   copo: "https://app.katorzepay.com/checkout/pay/copo-termico-brasil-edicao-limitada",
+  // TODO: substituir pelo link do Kit Completo no KatorzePay
+  kit: "https://app.katorzepay.com/checkout/pay/kit-brasil-camisa-copo",
 };
 
 const PRODUCTS = {
@@ -23,12 +25,18 @@ const PRODUCTS = {
     img: copoImg,
     link: CHECKOUT_LINKS.copo,
   },
+  kit: {
+    nome: "Kit Definitivo Brasil — Camisa + Copo Térmico",
+    preco: "R$ 279,90",
+    img: copoImg,
+    link: CHECKOUT_LINKS.kit,
+  },
 } as const;
 
 type ProductKey = keyof typeof PRODUCTS;
 
 const searchSchema = z.object({
-  produto: z.enum(["camisa", "copo"]).catch("copo"),
+  produto: z.enum(["camisa", "copo", "kit"]).catch("kit"),
 });
 
 export const Route = createFileRoute("/checkout")({
