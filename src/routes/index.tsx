@@ -250,8 +250,9 @@ function Products() {
             </p>
             <ul className="mt-4 space-y-2 text-sm">
               {[
-                "1x Camisa Oficial Brasil (dry-fit premium)",
-                "1x Copo Térmico Edição Limitada (24h gelado)",
+                "1x Camisa Oficial Brasil (dry-fit premium) — tamanhos P, M, G, GG",
+                "1x Copo Térmico original Stanley (24h gelado) com nome personalizado",
+                "Personalização premium gravada no copo (até 15 caracteres)",
                 "Frete e envio prioritários",
               ].map(b => (
                 <li key={b} className="flex items-start gap-2">
