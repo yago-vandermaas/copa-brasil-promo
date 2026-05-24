@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Check, Flame, ShieldCheck, Star, Truck, Lock, Clock, ChevronRight } from "lucide-react";
 import heroImg from "@/assets/hero-kit.jpg";
@@ -25,19 +25,9 @@ export const Route = createFileRoute("/")({
 });
 
 // ============================================================
-//  LINKS DE CHECKOUT — KatorzePay
+//  Compra → leva para a página de endereço (/checkout)
+//  e em seguida redireciona para o gateway KatorzePay.
 // ============================================================
-const CHECKOUT_LINKS = {
-  camisa: "https://app.katorzepay.com/checkout/pay/camisa-brasil-2026-tailandesa",
-  copo: "https://app.katorzepay.com/checkout/pay/copo-termico-brasil-edicao-limitada",
-};
-
-const openCheckout = (url: string) => {
-  window.open(url, "_blank", "noopener,noreferrer");
-};
-
-const handleBuyCamisa = () => openCheckout(CHECKOUT_LINKS.camisa);
-const handleBuyCopo = () => openCheckout(CHECKOUT_LINKS.copo);
 
 function LandingPage() {
   return (
