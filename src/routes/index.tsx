@@ -81,6 +81,7 @@ function Header() {
 }
 
 function Hero() {
+  const navigate = useNavigate();
   return (
     <section id="top" className="relative overflow-hidden bg-gradient-hero">
       <div className="mx-auto max-w-6xl px-4 pt-10 pb-16 md:pt-20 md:pb-24 grid md:grid-cols-2 gap-10 items-center">
@@ -92,16 +93,21 @@ function Hero() {
             O Kit Definitivo para o <span className="text-gradient-brasil">Torcedor Brasileiro</span>
           </h1>
           <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-xl">
-            Camisa oficial do estilo + Copo Térmico Edição Limitada com desconto exclusivo.
+            Camisa Oficial + Copo Térmico Edição Limitada juntos com desconto exclusivo.
             Vista o amarelinho, brinde a vitória e leve o Brasil com você.
           </p>
+          <div className="mt-6 flex items-baseline gap-3">
+            <span className="text-sm text-muted-foreground line-through">R$ 399,80</span>
+            <span className="text-4xl md:text-5xl font-display font-black text-gradient-brasil">R$ 279,90</span>
+          </div>
+          <p className="mt-1 text-xs font-semibold text-primary">Economize R$ 119,90 levando o kit completo</p>
           <div className="mt-7 flex flex-col sm:flex-row gap-3">
-            <a
-              href="#produtos"
+            <button
+              onClick={() => navigate({ to: "/checkout", search: { produto: "kit" } })}
               className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-brasil text-primary-foreground px-6 py-4 font-bold text-base shadow-glow hover:scale-[1.02] active:scale-[0.98] transition"
             >
               Garantir Meu Kit <ChevronRight className="h-5 w-5" />
-            </a>
+            </button>
             <div className="inline-flex items-center gap-2 text-sm text-muted-foreground">
               <ShieldCheck className="h-4 w-4 text-primary" /> Compra 100% Segura
             </div>
