@@ -120,6 +120,12 @@ function CheckoutPage() {
       bairro: z.string().trim().min(2, "Informe o bairro").max(100),
       cidade: z.string().trim().min(2, "Informe a cidade").max(100),
       estado: z.string().trim().length(2, "UF").toUpperCase(),
+      tamanhoCamisa: needsSize
+        ? z.enum(["P", "M", "G", "GG"], { errorMap: () => ({ message: "Selecione o tamanho" }) })
+        : z.string().optional(),
+      nomeCopo: needsNome
+        ? z.string().trim().min(1, "Informe o nome para gravar no copo").max(15, "Máximo de 15 caracteres")
+        : z.string().optional(),
     });
     const res = schema.safeParse(form);
     if (!res.success) {
