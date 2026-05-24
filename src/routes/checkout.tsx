@@ -29,7 +29,7 @@ const PRODUCTS = {
   kit: {
     nome: "Kit Definitivo Brasil — Camisa + Copo Térmico",
     preco: "R$ 279,90",
-    img: copoImg,
+    img: heroImg,
     link: CHECKOUT_LINKS.kit,
   },
 } as const;
