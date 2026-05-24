@@ -103,7 +103,7 @@ function Header() {
             B
           </div>
           <span className="font-display font-extrabold text-lg tracking-tight">
-            Kit<span className="text-gradient-brasil">Brasil</span>
+            KitCopa<span className="text-gradient-brasil">Brasil</span>
           </span>
         </a>
         <a
