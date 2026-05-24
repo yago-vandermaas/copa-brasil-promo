@@ -171,8 +171,6 @@ function CheckoutPage() {
   const totalFormatado = totalSoma.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
   // --------------------------------
 
-  return (
-    <div className="min-h-screen bg-muted/40"></div>
 
   return (
     <div className="min-h-screen bg-muted/40">
@@ -305,8 +303,9 @@ function CheckoutPage() {
                   <span>Frete fixo</span><span className="text-primary font-semibold">R$ 9,99</span>
                 </div>
                 <div className="flex justify-between pt-2 mt-2 border-t border-border font-display font-black text-base">
-                  <span>Total</span><span>{item.preco}</span>
+                  <span>Total</span><span>{totalFormatado}</span>
                 </div>
+
               </div>
               <button
                 type="button"
