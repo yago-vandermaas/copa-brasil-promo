@@ -59,6 +59,8 @@ function CheckoutPage() {
   const { produto } = Route.useSearch();
   const navigate = useNavigate();
   const item = PRODUCTS[produto as ProductKey];
+  const needsSize = produto === "camisa" || produto === "kit";
+  const needsNome = produto === "copo" || produto === "kit";
 
   const [form, setForm] = useState({
     nome: "",
@@ -71,6 +73,8 @@ function CheckoutPage() {
     bairro: "",
     cidade: "",
     estado: "",
+    tamanhoCamisa: "" as "" | "P" | "M" | "G" | "GG",
+    nomeCopo: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [loadingCep, setLoadingCep] = useState(false);
