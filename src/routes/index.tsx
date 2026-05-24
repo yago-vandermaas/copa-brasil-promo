@@ -281,16 +281,7 @@ function Products() {
         <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           {/* CAMISA */}
           <article className="group bg-card rounded-3xl overflow-hidden shadow-card border border-border flex flex-col">
-            <div className="relative aspect-square bg-muted overflow-hidden">
-              <img
-                src={camisaImg}
-                alt="Camisa do Brasil"
-                loading="lazy"
-                width={1024}
-                height={1024}
-                className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
-              />
-            </div>
+            <ProductGallery images={[camisaImg, camisaImg2, camisaImg3]} alt="Camisa Oficial Brasil" />
             <div className="p-6 md:p-8 flex flex-col flex-1">
               <h3 className="font-display text-2xl font-extrabold">Camisa Oficial Brasil</h3>
               <p className="mt-2 text-sm text-muted-foreground">
