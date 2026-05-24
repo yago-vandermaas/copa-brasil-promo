@@ -360,6 +360,12 @@ function CheckoutPage() {
                 <div className="flex-1">
                   <p className="font-bold leading-tight">{item.nome}</p>
                   <p className="mt-1 text-xs text-muted-foreground">Qtd: 1</p>
+                  {needsSize && form.tamanhoCamisa && (
+                    <p className="mt-1 text-xs text-muted-foreground">Tamanho: <b className="text-foreground">{form.tamanhoCamisa}</b></p>
+                  )}
+                  {needsNome && form.nomeCopo && (
+                    <p className="mt-1 text-xs text-muted-foreground">Gravação: <b className="text-foreground uppercase">{form.nomeCopo}</b></p>
+                  )}
                   <p className="mt-2 font-display font-black text-lg text-gradient-brasil">{item.preco}</p>
                 </div>
               </div>
