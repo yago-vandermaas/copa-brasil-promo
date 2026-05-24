@@ -290,7 +290,7 @@ function CheckoutPage() {
                   <span>Subtotal</span><span>{item.preco}</span>
                 </div>
                 <div className="flex justify-between text-muted-foreground">
-                  <span>Frete</span><span className="text-primary font-semibold">A calcular</span>
+                  <span>Frete fixo</span><span className="text-primary font-semibold">R$ 9,99</span>
                 </div>
                 <div className="flex justify-between pt-2 mt-2 border-t border-border font-display font-black text-base">
                   <span>Total</span><span>{item.preco}</span>
