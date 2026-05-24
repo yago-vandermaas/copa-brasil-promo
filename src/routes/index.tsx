@@ -318,11 +318,15 @@ function Products() {
               <h3 className="font-display text-2xl md:text-3xl font-black">
                 Copo Térmico Brasil <span className="text-gradient-brasil">Edição Limitada</span>
               </h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Copo térmico <b className="text-foreground">original Stanley</b> com <b className="text-foreground">personalização premium</b>: grave o seu nome (até 15 caracteres) no corpo do copo.
+              </p>
               <ul className="mt-4 space-y-2 text-sm">
                 {[
+                  "Nome personalizado gravado (premium, até 15 caracteres)",
+                  "Original Stanley — aço inox de alta durabilidade",
                   "Gela bebidas por até 24 horas",
                   "Design exclusivo com a bandeira do Brasil",
-                  "Aço inox premium — alta durabilidade",
                 ].map(b => (
                   <li key={b} className="flex items-start gap-2">
                     <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
