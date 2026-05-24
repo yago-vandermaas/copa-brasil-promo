@@ -422,7 +422,7 @@ function Footer() {
             <div className="h-9 w-9 rounded-xl bg-gradient-brasil grid place-items-center font-display font-black text-primary-foreground">
               B
             </div>
-            <span className="font-display font-extrabold text-lg">KitBrasil</span>
+            <span className="font-display font-extrabold text-lg">KitCopaBrasil</span>
           </div>
           <p className="mt-3 text-sm text-background/70 max-w-sm">
             A loja oficial do torcedor brasileiro. Edição Limitada Copa do Mundo.
