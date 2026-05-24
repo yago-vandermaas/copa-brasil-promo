@@ -250,8 +250,9 @@ function Products() {
             </p>
             <ul className="mt-4 space-y-2 text-sm">
               {[
-                "1x Camisa Oficial Brasil (dry-fit premium)",
-                "1x Copo Térmico Edição Limitada (24h gelado)",
+                "1x Camisa Oficial Brasil (dry-fit premium) — tamanhos P, M, G, GG",
+                "1x Copo Térmico original Stanley (24h gelado) com nome personalizado",
+                "Personalização premium gravada no copo (até 15 caracteres)",
                 "Frete e envio prioritários",
               ].map(b => (
                 <li key={b} className="flex items-start gap-2">
@@ -285,7 +286,7 @@ function Products() {
             <div className="p-6 md:p-8 flex flex-col flex-1">
               <h3 className="font-display text-2xl font-extrabold">Camisa Oficial Brasil</h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                Tecido dry-fit premium, leve e respirável. Conforto absoluto dentro e fora do estádio.
+                Tecido dry-fit premium, leve e respirável. Conforto absoluto dentro e fora do estádio. Disponível nos tamanhos <b className="text-foreground">P, M, G e GG</b>.
               </p>
               <div className="mt-5 flex items-baseline gap-2">
                 <span className="text-3xl font-display font-black">R$ 149,90</span>
@@ -317,11 +318,15 @@ function Products() {
               <h3 className="font-display text-2xl md:text-3xl font-black">
                 Copo Térmico Brasil <span className="text-gradient-brasil">Edição Limitada</span>
               </h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Copo térmico <b className="text-foreground">original Stanley</b> com <b className="text-foreground">personalização premium</b>: grave o seu nome (até 15 caracteres) no corpo do copo.
+              </p>
               <ul className="mt-4 space-y-2 text-sm">
                 {[
+                  "Nome personalizado gravado (premium, até 15 caracteres)",
+                  "Original Stanley — aço inox de alta durabilidade",
                   "Gela bebidas por até 24 horas",
                   "Design exclusivo com a bandeira do Brasil",
-                  "Aço inox premium — alta durabilidade",
                 ].map(b => (
                   <li key={b} className="flex items-start gap-2">
                     <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />

@@ -59,6 +59,8 @@ function CheckoutPage() {
   const { produto } = Route.useSearch();
   const navigate = useNavigate();
   const item = PRODUCTS[produto as ProductKey];
+  const needsSize = produto === "camisa" || produto === "kit";
+  const needsNome = produto === "copo" || produto === "kit";
 
   const [form, setForm] = useState({
     nome: "",
@@ -71,6 +73,8 @@ function CheckoutPage() {
     bairro: "",
     cidade: "",
     estado: "",
+    tamanhoCamisa: "" as "" | "P" | "M" | "G" | "GG",
+    nomeCopo: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [loadingCep, setLoadingCep] = useState(false);
@@ -116,6 +120,12 @@ function CheckoutPage() {
       bairro: z.string().trim().min(2, "Informe o bairro").max(100),
       cidade: z.string().trim().min(2, "Informe a cidade").max(100),
       estado: z.string().trim().length(2, "UF").toUpperCase(),
+      tamanhoCamisa: needsSize
+        ? z.enum(["P", "M", "G", "GG"], { errorMap: () => ({ message: "Selecione o tamanho" }) })
+        : z.string().optional(),
+      nomeCopo: needsNome
+        ? z.string().trim().min(1, "Informe o nome para gravar no copo").max(15, "Máximo de 15 caracteres")
+        : z.string().optional(),
     });
     const res = schema.safeParse(form);
     if (!res.success) {
@@ -218,6 +228,64 @@ function CheckoutPage() {
               </div>
             </section>
 
+            {(needsSize || needsNome) && (
+              <section>
+                <h2 className="font-display text-lg font-extrabold mb-4">Personalização do produto</h2>
+                <div className="space-y-5">
+                  {needsSize && (
+                    <div>
+                      <label className="text-xs font-semibold text-muted-foreground">Tamanho da camisa</label>
+                      <div className="mt-2 grid grid-cols-4 gap-2">
+                        {(["P", "M", "G", "GG"] as const).map(t => {
+                          const active = form.tamanhoCamisa === t;
+                          return (
+                            <button
+                              key={t}
+                              type="button"
+                              onClick={() => set("tamanhoCamisa", t)}
+                              className={
+                                "rounded-xl border-2 py-3 font-display font-black text-base transition " +
+                                (active
+                                  ? "border-primary bg-primary text-primary-foreground shadow-glow"
+                                  : "border-border bg-background hover:border-primary/50")
+                              }
+                            >
+                              {t}
+                            </button>
+                          );
+                        })}
+                      </div>
+                      {fieldErr("tamanhoCamisa")}
+                    </div>
+                  )}
+
+                  {needsNome && (
+                    <div>
+                      <label className="text-xs font-semibold text-muted-foreground">
+                        Nome a gravar no copo <span className="text-primary">(personalização premium)</span>
+                      </label>
+                      <input
+                        className={inputBase + " uppercase tracking-wider"}
+                        value={form.nomeCopo}
+                        onChange={e => set("nomeCopo", e.target.value.slice(0, 15))}
+                        maxLength={15}
+                        placeholder="EX: BRASIL"
+                      />
+                      <div className="mt-1 flex justify-between text-xs">
+                        <span className="text-muted-foreground">Copo original Stanley — gravação premium</span>
+                        <span className={form.nomeCopo.length >= 15 ? "text-primary font-bold" : "text-muted-foreground"}>
+                          {form.nomeCopo.length}/15
+                        </span>
+                      </div>
+                      {fieldErr("nomeCopo")}
+                    </div>
+                  )}
+                </div>
+              </section>
+            )}
+
+
+
             <section>
               <h2 className="font-display text-lg font-extrabold mb-4">Endereço de entrega</h2>
               <div className="grid sm:grid-cols-6 gap-4">
@@ -292,6 +360,12 @@ function CheckoutPage() {
                 <div className="flex-1">
                   <p className="font-bold leading-tight">{item.nome}</p>
                   <p className="mt-1 text-xs text-muted-foreground">Qtd: 1</p>
+                  {needsSize && form.tamanhoCamisa && (
+                    <p className="mt-1 text-xs text-muted-foreground">Tamanho: <b className="text-foreground">{form.tamanhoCamisa}</b></p>
+                  )}
+                  {needsNome && form.nomeCopo && (
+                    <p className="mt-1 text-xs text-muted-foreground">Gravação: <b className="text-foreground uppercase">{form.nomeCopo}</b></p>
+                  )}
                   <p className="mt-2 font-display font-black text-lg text-gradient-brasil">{item.preco}</p>
                 </div>
               </div>
