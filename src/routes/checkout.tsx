@@ -162,6 +162,18 @@ function CheckoutPage() {
       </p>
     ) : null;
 
+// --- ADICIONA ESTE BLOCO AQUI ---
+  const valorFrete = 9.99;
+  // Converte "R$ 149,90" para 149.90
+  const precoProdutoNum = parseFloat(item.preco.replace("R$ ", "").replace(",", ".")); 
+  const totalSoma = precoProdutoNum + valorFrete;
+  // Formata o resultado para exibir como Moeda (ex: "R$ 159,89")
+  const totalFormatado = totalSoma.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+  // --------------------------------
+
+  return (
+    <div className="min-h-screen bg-muted/40"></div>
+
   return (
     <div className="min-h-screen bg-muted/40">
       <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-lg border-b border-border">
@@ -293,7 +305,7 @@ function CheckoutPage() {
                   <span>Frete fixo</span><span className="text-primary font-semibold">R$ 9,99</span>
                 </div>
                 <div className="flex justify-between pt-2 mt-2 border-t border-border font-display font-black text-base">
-                  <span>Total</span><span>R$159,89</span>
+                  <span>Total</span><span>{item.preco}</span>
                 </div>
               </div>
               <button
