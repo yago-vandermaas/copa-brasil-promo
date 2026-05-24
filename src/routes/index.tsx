@@ -286,7 +286,7 @@ function Products() {
             <div className="p-6 md:p-8 flex flex-col flex-1">
               <h3 className="font-display text-2xl font-extrabold">Camisa Oficial Brasil</h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                Tecido dry-fit premium, leve e respirável. Conforto absoluto dentro e fora do estádio.
+                Tecido dry-fit premium, leve e respirável. Conforto absoluto dentro e fora do estádio. Disponível nos tamanhos <b className="text-foreground">P, M, G e GG</b>.
               </p>
               <div className="mt-5 flex items-baseline gap-2">
                 <span className="text-3xl font-display font-black">R$ 149,90</span>
