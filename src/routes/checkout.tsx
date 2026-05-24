@@ -293,7 +293,7 @@ function CheckoutPage() {
                   <span>Frete fixo</span><span className="text-primary font-semibold">R$ 9,99</span>
                 </div>
                 <div className="flex justify-between pt-2 mt-2 border-t border-border font-display font-black text-base">
-                  <span>Total</span><span>{item.preco}</span>
+                  <span>Total</span><span>R$159,89</span>
                 </div>
               </div>
               <button
