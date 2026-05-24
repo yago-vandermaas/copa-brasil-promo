@@ -2,8 +2,45 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Check, Flame, ShieldCheck, Star, Truck, Lock, Clock, ChevronRight } from "lucide-react";
 import heroImg from "@/assets/hero-kit.jpg";
+import heroImg2 from "@/assets/hero-kit-2.jpg";
+import heroImg3 from "@/assets/hero-kit-3.jpg";
 import camisaImg from "@/assets/camisa-brasil.jpg";
+import camisaImg2 from "@/assets/camisa-brasil-2.jpg";
+import camisaImg3 from "@/assets/camisa-brasil-3.jpg";
 import copoImg from "@/assets/copo-termico.jpg";
+import copoImg2 from "@/assets/copo-termico-2.jpg";
+import copoImg3 from "@/assets/copo-termico-3.jpg";
+
+function ProductGallery({ images, alt, fit = "cover" }: { images: string[]; alt: string; fit?: "cover" | "contain" }) {
+  const [active, setActive] = useState(0);
+  return (
+    <div className="flex flex-col">
+      <div className={`relative aspect-square overflow-hidden ${fit === "contain" ? "p-6" : ""}`}>
+        <img
+          src={images[active]}
+          alt={alt}
+          loading="lazy"
+          className={`w-full h-full ${fit === "cover" ? "object-cover" : "object-contain"} transition duration-500`}
+        />
+      </div>
+      <div className="flex gap-2 px-4 pb-4 pt-3 bg-background/40">
+        {images.map((src, i) => (
+          <button
+            key={src}
+            type="button"
+            onClick={() => setActive(i)}
+            aria-label={`Ver foto ${i + 1}`}
+            className={`relative h-16 w-16 shrink-0 rounded-xl overflow-hidden border-2 transition ${
+              active === i ? "border-primary shadow-glow" : "border-border opacity-70 hover:opacity-100"
+            }`}
+          >
+            <img src={src} alt="" className="w-full h-full object-cover" />
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -201,13 +238,8 @@ function Products() {
               Economize R$ 119,90
             </span>
           </div>
-          <div className="relative aspect-square md:aspect-auto bg-gradient-to-br from-primary/15 to-secondary/15 overflow-hidden">
-            <img
-              src={heroImg}
-              alt="Kit Definitivo Brasil — Camisa + Copo Térmico"
-              loading="lazy"
-              className="w-full h-full object-cover"
-            />
+          <div className="bg-gradient-to-br from-primary/15 to-secondary/15">
+            <ProductGallery images={[heroImg, heroImg2, heroImg3]} alt="Kit Definitivo Brasil — Camisa + Copo Térmico" />
           </div>
           <div className="p-6 md:p-10 flex flex-col justify-center">
             <h3 className="font-display text-2xl md:text-3xl font-black">
@@ -249,16 +281,7 @@ function Products() {
         <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           {/* CAMISA */}
           <article className="group bg-card rounded-3xl overflow-hidden shadow-card border border-border flex flex-col">
-            <div className="relative aspect-square bg-muted overflow-hidden">
-              <img
-                src={camisaImg}
-                alt="Camisa do Brasil"
-                loading="lazy"
-                width={1024}
-                height={1024}
-                className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
-              />
-            </div>
+            <ProductGallery images={[camisaImg, camisaImg2, camisaImg3]} alt="Camisa Oficial Brasil" />
             <div className="p-6 md:p-8 flex flex-col flex-1">
               <h3 className="font-display text-2xl font-extrabold">Camisa Oficial Brasil</h3>
               <p className="mt-2 text-sm text-muted-foreground">
@@ -287,15 +310,8 @@ function Products() {
                 -40% Oferta Exclusiva
               </span>
             </div>
-            <div className="relative aspect-square bg-gradient-to-br from-secondary/15 to-primary/15 overflow-hidden">
-              <img
-                src={copoImg}
-                alt="Copo Térmico Brasil Edição Limitada"
-                loading="lazy"
-                width={1024}
-                height={1024}
-                className="w-full h-full object-contain p-6 group-hover:scale-105 transition duration-700"
-              />
+            <div className="bg-gradient-to-br from-secondary/15 to-primary/15">
+              <ProductGallery images={[copoImg, copoImg2, copoImg3]} alt="Copo Térmico Brasil Edição Limitada" fit="contain" />
             </div>
             <div className="p-6 md:p-8 flex flex-col flex-1">
               <h3 className="font-display text-2xl md:text-3xl font-black">
