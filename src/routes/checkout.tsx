@@ -10,7 +10,7 @@ const CHECKOUT_LINKS = {
   camisa: "https://app.katorzepay.com/checkout/pay/camisa-brasil-2026-tailandesa",
   copo: "https://app.katorzepay.com/checkout/pay/copo-termico-brasil-edicao-limitada",
   // TODO: substituir pelo link do Kit Completo no KatorzePay
-  kit: "https://app.katorzepay.com/checkout/pay/kit-brasil-camisa-copo",
+  kit: "https://app.katorzepay.com/checkout/pay/camisa-oficial-copo-termico-edicao-limitada",
 };
 
 const PRODUCTS = {
