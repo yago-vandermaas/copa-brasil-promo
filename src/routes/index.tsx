@@ -310,15 +310,8 @@ function Products() {
                 -40% Oferta Exclusiva
               </span>
             </div>
-            <div className="relative aspect-square bg-gradient-to-br from-secondary/15 to-primary/15 overflow-hidden">
-              <img
-                src={copoImg}
-                alt="Copo Térmico Brasil Edição Limitada"
-                loading="lazy"
-                width={1024}
-                height={1024}
-                className="w-full h-full object-contain p-6 group-hover:scale-105 transition duration-700"
-              />
+            <div className="bg-gradient-to-br from-secondary/15 to-primary/15">
+              <ProductGallery images={[copoImg, copoImg2, copoImg3]} alt="Copo Térmico Brasil Edição Limitada" fit="contain" />
             </div>
             <div className="p-6 md:p-8 flex flex-col flex-1">
               <h3 className="font-display text-2xl md:text-3xl font-black">
