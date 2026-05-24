@@ -238,13 +238,8 @@ function Products() {
               Economize R$ 119,90
             </span>
           </div>
-          <div className="relative aspect-square md:aspect-auto bg-gradient-to-br from-primary/15 to-secondary/15 overflow-hidden">
-            <img
-              src={heroImg}
-              alt="Kit Definitivo Brasil — Camisa + Copo Térmico"
-              loading="lazy"
-              className="w-full h-full object-cover"
-            />
+          <div className="bg-gradient-to-br from-primary/15 to-secondary/15">
+            <ProductGallery images={[heroImg, heroImg2, heroImg3]} alt="Kit Definitivo Brasil — Camisa + Copo Térmico" />
           </div>
           <div className="p-6 md:p-10 flex flex-col justify-center">
             <h3 className="font-display text-2xl md:text-3xl font-black">
