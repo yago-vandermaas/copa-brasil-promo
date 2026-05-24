@@ -172,6 +172,9 @@ function TimeBox({ v, l }: { v: string; l: string }) {
 }
 
 function Products() {
+  const navigate = useNavigate();
+  const handleBuyCamisa = () => navigate({ to: "/checkout", search: { produto: "camisa" } });
+  const handleBuyCopo = () => navigate({ to: "/checkout", search: { produto: "copo" } });
   return (
     <section id="produtos" className="py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-4">
