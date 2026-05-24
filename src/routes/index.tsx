@@ -26,22 +26,18 @@ export const Route = createFileRoute("/")({
 
 // ============================================================
 //  LINKS DE CHECKOUT — KatorzePay
-//  Substitua as URLs abaixo pelos seus links de pagamento.
 // ============================================================
 const CHECKOUT_LINKS = {
-  camisa: "https://SEU-LINK-KATORZEPAY-CAMISA.com", // TODO: link da Camisa
-  copo: "https://SEU-LINK-KATORZEPAY-COPO.com",     // TODO: link do Copo Térmico
+  camisa: "https://app.katorzepay.com/checkout/pay/camisa-brasil-2026-tailandesa",
+  copo: "https://app.katorzepay.com/checkout/pay/copo-termico-brasil-edicao-limitada",
 };
 
-const handleBuyCamisa = () => {
-  // TODO: integração KatorzePay — Camisa
-  window.location.href = CHECKOUT_LINKS.camisa;
+const openCheckout = (url: string) => {
+  window.open(url, "_blank", "noopener,noreferrer");
 };
 
-const handleBuyCopo = () => {
-  // TODO: integração KatorzePay — Copo Térmico
-  window.location.href = CHECKOUT_LINKS.copo;
-};
+const handleBuyCamisa = () => openCheckout(CHECKOUT_LINKS.camisa);
+const handleBuyCopo = () => openCheckout(CHECKOUT_LINKS.copo);
 
 function LandingPage() {
   return (
